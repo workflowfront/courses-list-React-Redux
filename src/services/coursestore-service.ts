@@ -1,22 +1,24 @@
+import { Course } from '../types';
 
 export default class CoursestoreService {
-
-  data = [
+  data: Course[] = [
     {
       id: 1,
       title: 'React + Redux - Профессиональная Разработка',
       author: 'Juriy Bura',
       price: 9450,
-      coverImage: 'https://im0-tub-ru.yandex.net/i?id=4e509a5ff5c4130ccb42506f41d14983&n=13'},
+      coverImage: 'https://im0-tub-ru.yandex.net/i?id=4e509a5ff5c4130ccb42506f41d14983&n=13',
+    },
     {
       id: 2,
       title: '2021 Update! React Testing with Jest and Enzyme',
       author: 'Bonnie Schulkin',
       price: 4550,
-      coverImage: 'https://cdn-images-1.medium.com/max/1024/1*m-wrUVi1Pz-FFx6YN1eHhA.png'}
+      coverImage: 'https://cdn-images-1.medium.com/max/1024/1*m-wrUVi1Pz-FFx6YN1eHhA.png',
+    },
   ];
 
-  getCourses() {
+  getCourses(): Promise<Course[]> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (Math.random() > 0.75) {

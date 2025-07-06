@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { Button } from 'antd';
 import './course-list-item.css';
+import { Course } from '../../types';
 
-const CourseListItem = ({ course, onAddedToCart }) => {
+interface CourseListItemProps {
+  course: Course;
+  onAddedToCart: () => void;
+}
+
+const CourseListItem: FC<CourseListItemProps> = ({ course, onAddedToCart }) => {
   const { title, author, price, coverImage } = course;
   return (
     <div className="course-list-item">
@@ -12,11 +19,9 @@ const CourseListItem = ({ course, onAddedToCart }) => {
         <span className="course-title">{title}</span>
         <div className="course-author">{author}</div>
         <div className="course-price">${price}</div>
-        <button
-          onClick={onAddedToCart}
-          className="btn btn-info add-to-cart">
+        <Button onClick={onAddedToCart} type="primary" className="add-to-cart" size="small">
           Add to cart
-        </button>
+        </Button>
       </div>
     </div>
   );

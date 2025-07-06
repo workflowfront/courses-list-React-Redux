@@ -1,10 +1,14 @@
-const updateCourseList = (state, action) => {
+import { CourseListState } from '../types';
 
+const updateCourseList = (
+  state: CourseListState | undefined,
+  action: { type: string; payload?: unknown },
+): CourseListState => {
   if (state === undefined) {
     return {
       courses: [],
       loading: true,
-      error: null
+      error: false,
     };
   }
 
@@ -13,25 +17,25 @@ const updateCourseList = (state, action) => {
       return {
         courses: [],
         loading: true,
-        error: null
+        error: false,
       };
 
     case 'FETCH_COURSES_SUCCESS':
       return {
-        courses: action.payload,
+        courses: action.payload as any[],
         loading: false,
-        error: null
+        error: false,
       };
 
     case 'FETCH_COURSES_FAILURE':
       return {
         courses: [],
         loading: false,
-        error: action.payload
+        error: true,
       };
 
     default:
-      return state.courseList;
+      return state;
   }
 };
 

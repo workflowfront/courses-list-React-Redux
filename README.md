@@ -1,4 +1,4 @@
-coursesStore React Redux
+courses Store React Redux
 
 ## Development 
 

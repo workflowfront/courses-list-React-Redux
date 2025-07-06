@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './error-indicator.css';
 
-const ErrorIndicator = () => {
+const ErrorIndicator: FC = () => {
   return <div>Error!</div>;
 };
 
