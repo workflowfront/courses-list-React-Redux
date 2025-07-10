@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './spinner.css';
 
-const Spinner = () => {
+const Spinner: FC = () => {
   return <div>loading...</div>;
 };
 

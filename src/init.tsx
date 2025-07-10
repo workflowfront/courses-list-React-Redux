@@ -1,26 +1,38 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-
+import { ConfigProvider } from 'antd';
+import 'antd/dist/reset.css';
 import App from './components/app';
+import store from './store';
 import ErrorBoundry from './components/error-boundry';
 import CoursestoreService from './services/coursestore-service';
 import { CoursestoreServiceProvider } from './components/coursestore-service-context';
 
-import store from './store';
-
 const coursestoreService = new CoursestoreService();
 
-ReactDOM.render(
+export const AppInit = () => (
   <Provider store={store}>
     <ErrorBoundry>
       <CoursestoreServiceProvider value={coursestoreService}>
         <Router>
-          <App />
+          <ConfigProvider
+            theme={{
+              token: {
+                colorPrimary: '#1677ff',
+                colorSuccess: '#52c41a',
+                colorWarning: '#faad14',
+                colorError: '#ff4d4f',
+                fontFamily: 'Roboto, "Helvetica Neue", Arial, "sans-serif"',
+              },
+            }}
+          >
+            <App />
+          </ConfigProvider>
         </Router>
       </CoursestoreServiceProvider>
     </ErrorBoundry>
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 );
+
+export default AppInit;

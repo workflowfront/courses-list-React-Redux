@@ -1,14 +1,12 @@
-import React from 'react';
-import CourseList from '../course-list';
+import React, { FC } from 'react';
 import ShoppingCartTable from '../shopping-cart-table/shopping-cart-table';
 
-const HomePage = () => {
+const CartPage: FC = () => {
   return (
     <div>
-      <CourseList />
       <ShoppingCartTable />
     </div>
   );
 };
 
-export default HomePage;
+export default CartPage;
